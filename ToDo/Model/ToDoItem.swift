@@ -12,8 +12,8 @@ class ToDoItem: ObservableObject, Identifiable {
     // MARK: - Variables
     
     var id = UUID()
-    var name: String
-    var isComplete: Bool
+    @Published var name: String
+    @Published var isComplete: Bool
     
     // MARK: - Object Lifecycle
     
