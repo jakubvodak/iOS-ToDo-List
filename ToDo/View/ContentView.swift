@@ -11,7 +11,7 @@ struct ContentView: View {
 
     // MARK: - Variables
     
-    var todoItems: [ToDoItem] = [] //[ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    var todoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
     
     // MARK: - View
     
@@ -22,7 +22,7 @@ struct ContentView: View {
                     .font(.system(size: 26, weight: .black, design: .rounded))
                 
                 List(todoItems) { todoItem in
-                    Text(todoItem.name)
+                    TodoListRow(todoItem:todoItem)
                 }
                 
                 Button(action: {
@@ -50,6 +50,21 @@ struct EmptyListView: View {
         Text("No Todos\nHave some rest!")
             .font(.system(size: 12, weight: .semibold, design: .rounded))
             .multilineTextAlignment(.center)
+    }
+}
+
+struct TodoListRow: View {
+    @ObservedObject var todoItem: ToDoItem
+    
+    var body: some View {
+        Toggle(isOn: self.$todoItem.isComplete) {
+            HStack {
+                Text(self.todoItem.name)
+                    .strikethrough(self.todoItem.isComplete, color: .black)
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                    .animation(.default)
+            }
+        }.toggleStyle(CheckboxStyle())
     }
 }
 
