@@ -53,6 +53,10 @@ struct NewToDoView: View {
                 
                 Button(action: {
                     
+                    if self.name.trimmingCharacters(in: .whitespaces) == "" {
+                        return
+                    }
+                    
                     self.isShow = false
                     self.addTask(name: self.name)
                     
@@ -63,11 +67,13 @@ struct NewToDoView: View {
                         .padding()
                         .foregroundColor(.white)
                         .background(.blue)
+                        .cornerRadius(10)
                 }
                 .padding(.bottom)
             }
             .padding()
             .background(Color.white)
+            .cornerRadius(10, antialiased: true)
             .offset(y: isEditing ? -320 : 0)
         }
         .edgesIgnoringSafeArea(.bottom)
