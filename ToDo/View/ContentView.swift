@@ -9,12 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
 
+    // MARK: - Variables
+    
+    var todoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    
+    // MARK: - View
+    
     var body: some View {
         VStack {
             Text("My Todos")
                 .font(.system(size: 26, weight: .black, design: .rounded))
             
             Spacer()
+            
+            List(todoItems) { todoItem in
+                Text(todoItem.name)
+            }
             
             Button(action: {
                 
