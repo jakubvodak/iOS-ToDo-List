@@ -11,7 +11,10 @@ struct ContentView: View {
 
     // MARK: - Variables
     
-    var toDoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    @State var toDoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    
+    @State private var newItemName: String = ""
+    @State private var showNewTask = false
     
     // MARK: - View
     
@@ -41,7 +44,31 @@ struct ContentView: View {
             if toDoItems.count == 0 {
                 EmptyListView()
             }
+            
+            if showNewTask {
+                BlankView(bgColor: .black)
+                    .opacity(0.5)
+                    .onTapGesture {
+                        self.showNewTask = false
+                    }
+                
+                NewToDoView(isShow: $showNewTask, toDoItems: $toDoItems, name: "")
+                    .transition(.move(edge: .bottom))
+            }
         }
+    }
+}
+
+struct BlankView : View {
+
+    var bgColor: Color
+    var body: some View {
+        VStack {
+            Spacer()
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .background(bgColor)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
