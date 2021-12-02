@@ -6,20 +6,10 @@
 //
 
 import Foundation
+import CoreData
 
-class ToDoItem: ObservableObject, Identifiable {
-    
-    // MARK: - Variables
-    
-    var id = UUID()
-    @Published var name: String
-    @Published var isComplete: Bool
-    
-    // MARK: - Object Lifecycle
-    
-    init(name: String, isComplete: Bool = false) {
-        self.name = name
-        self.isComplete = isComplete
-    }
-    
+public class ToDoItem: NSManagedObject, Identifiable {
+    @NSManaged public var id: UUID
+    @NSManaged public var name: String
+    @NSManaged public var isComplete: Bool
 }

@@ -11,7 +11,12 @@ struct ContentView: View {
 
     // MARK: - Variables
     
-    @State var toDoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    @Environment(\.managedObjectContext) var context
+    
+    @FetchRequest(
+        entity: ToDoItem.entity(),
+        sortDescriptors: [])
+    var toDoItems: FetchedResults<ToDoItem>
     
     @State private var newItemName: String = ""
     @State private var showNewTask = false
@@ -52,7 +57,7 @@ struct ContentView: View {
                         self.showNewTask = false
                     }
                 
-                NewToDoView(isShow: $showNewTask, toDoItems: $toDoItems, name: "")
+                NewToDoView(isShow: $showNewTask, name: "")
                     .transition(.move(edge: .bottom))
                     .animation(.interpolatingSpring(stiffness: 200.0, damping: 25.0, initialVelocity: 10.0))
             }

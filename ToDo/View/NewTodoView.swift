@@ -10,9 +10,10 @@ import SwiftUI
 struct NewToDoView: View {
  
     // MARK: - Variables
+ 
+    @Environment(\.managedObjectContext) var context
     
     @Binding var isShow: Bool
-    @Binding var toDoItems: [ToDoItem]
     
     @State var name: String
     @State var isEditing = false
@@ -81,13 +82,21 @@ struct NewToDoView: View {
     
     private func addTask(name: String, isComplete: Bool = false) {
         
-        let task = ToDoItem(name: name, isComplete: isComplete)
-        toDoItems.append(task)
+        let task = ToDoItem(context: context)
+        task.id = UUID()
+        task.name = name
+        task.isComplete = isComplete
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
     }
 }
 
 struct NewToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        NewToDoView(isShow: .constant(true), toDoItems: .constant([]), name: "")
+        NewToDoView(isShow: .constant(true), name: "")
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ToDoListRow: View {
+    
+    @Environment(\.managedObjectContext) var context
+    
     @ObservedObject var toDoItem: ToDoItem
     
     var body: some View {
@@ -18,6 +21,12 @@ struct ToDoListRow: View {
                     .font(.system(size: 16, weight: .semibold, design: .rounded))
                     .animation(.default)
             }
-        }.toggleStyle(CheckboxStyle())
+        }
+        .toggleStyle(CheckboxStyle())
+        .onReceive(toDoItem.objectWillChange, perform: { _ in
+            if self.context.hasChanges {
+                try? self.context.save()
+            }
+        })
     }
 }
