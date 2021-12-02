@@ -29,7 +29,7 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    
+                    self.showNewTask = true
                 }) {
                     Text("New Todo")
                         .padding(10)
