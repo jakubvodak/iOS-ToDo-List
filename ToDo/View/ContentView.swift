@@ -11,33 +11,45 @@ struct ContentView: View {
 
     // MARK: - Variables
     
-    var todoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    var todoItems: [ToDoItem] = [] //[ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
     
     // MARK: - View
     
     var body: some View {
-        VStack {
-            Text("My Todos")
-                .font(.system(size: 26, weight: .black, design: .rounded))
-            
-            Spacer()
-            
-            List(todoItems) { todoItem in
-                Text(todoItem.name)
-            }
-            
-            Button(action: {
+        ZStack {
+            VStack {
+                Text("My Todos")
+                    .font(.system(size: 26, weight: .black, design: .rounded))
                 
-            }) {
-                Text("New Todo")
-                    .padding(10)
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .cornerRadius(10)
+                List(todoItems) { todoItem in
+                    Text(todoItem.name)
+                }
+                
+                Button(action: {
+                    
+                }) {
+                    Text("New Todo")
+                        .padding(10)
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .cornerRadius(10)
+                }
+                .padding()
             }
-            .padding()
+            
+            if todoItems.count == 0 {
+                EmptyListView()
+            }
         }
+    }
+}
+
+struct EmptyListView: View {
+    var body: some View {
+        Text("No Todos\nHave some rest!")
+            .font(.system(size: 12, weight: .semibold, design: .rounded))
+            .multilineTextAlignment(.center)
     }
 }
 
