@@ -70,9 +70,8 @@
 				CBDDC928275947E600F4955E /* View */,
 				CBDDC929275947EB00F4955E /* Model */,
 				CBDDC915275941BF00F4955E /* ToDoApp.swift */,
-				CBDDC919275941C000F4955E /* Assets.xcassets */,
+				CBDDC93E27596B0E00F4955E /* Supporting Files */,
 				CBDDC91B275941C000F4955E /* Preview Content */,
-				CBDDC9362759661000F4955E /* ToDoList.xcdatamodeld */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -113,6 +112,15 @@
 				CBDDC93C27596A9C00F4955E /* EmptyListView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CBDDC93E27596B0E00F4955E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBDDC9362759661000F4955E /* ToDoList.xcdatamodeld */,
+				CBDDC919275941C000F4955E /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
