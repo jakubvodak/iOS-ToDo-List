@@ -55,8 +55,9 @@
 		CBDDC914275941BF00F4955E /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				CBDDC928275947E600F4955E /* View */,
+				CBDDC929275947EB00F4955E /* Model */,
 				CBDDC915275941BF00F4955E /* ToDoApp.swift */,
-				CBDDC917275941BF00F4955E /* ContentView.swift */,
 				CBDDC919275941C000F4955E /* Assets.xcassets */,
 				CBDDC91E275941C000F4955E /* Persistence.swift */,
 				CBDDC920275941C000F4955E /* ToDo.xcdatamodeld */,
@@ -71,6 +72,21 @@
 				CBDDC91C275941C000F4955E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CBDDC928275947E600F4955E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBDDC917275941BF00F4955E /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBDDC929275947EB00F4955E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
