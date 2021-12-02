@@ -4,7 +4,7 @@ SwiftUI &amp; CoreData sample app
 Features:
 - Add todos
 - Remove todos
-- Complete todos
+- Mark/Unmark todos as complete
 - Persistence
 
 ToDo:
