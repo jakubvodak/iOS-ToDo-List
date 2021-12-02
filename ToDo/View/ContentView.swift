@@ -54,6 +54,7 @@ struct ContentView: View {
                 
                 NewToDoView(isShow: $showNewTask, toDoItems: $toDoItems, name: "")
                     .transition(.move(edge: .bottom))
+                    .animation(.interpolatingSpring(stiffness: 200.0, damping: 25.0, initialVelocity: 10.0))
             }
         }
     }
