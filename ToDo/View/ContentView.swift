@@ -29,8 +29,11 @@ struct ContentView: View {
                 Text("My Todos")
                     .font(.system(size: 26, weight: .black, design: .rounded))
                 
-                List(toDoItems) { toDoItem in
-                    ToDoListRow(toDoItem:toDoItem)
+                List {
+                    ForEach(toDoItems) { todoItem in
+                        ToDoListRow(toDoItem: todoItem)
+                    }
+                    .onDelete(perform: deleteTask)
                 }
                 
                 Button(action: {
@@ -63,26 +66,21 @@ struct ContentView: View {
             }
         }
     }
-}
-
-struct BlankView : View {
-
-    var bgColor: Color
-    var body: some View {
-        VStack {
-            Spacer()
+    
+    private func deleteTask(indexSet: IndexSet) {
+        for index in indexSet {
+            let itemToDelete = toDoItems[index]
+            context.delete(itemToDelete)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .background(bgColor)
-        .edgesIgnoringSafeArea(.all)
-    }
-}
 
-struct EmptyListView: View {
-    var body: some View {
-        Text("No Todos\nHave some rest!")
-            .font(.system(size: 12, weight: .semibold, design: .rounded))
-            .multilineTextAlignment(.center)
+        DispatchQueue.main.async {
+            do {
+                try context.save()
+                
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
