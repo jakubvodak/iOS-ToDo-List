@@ -11,7 +11,7 @@ struct ContentView: View {
 
     // MARK: - Variables
     
-    var todoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
+    var toDoItems: [ToDoItem] = [ToDoItem(name: "Buy Milk"), ToDoItem(name: "Sing a song")]
     
     // MARK: - View
     
@@ -21,8 +21,8 @@ struct ContentView: View {
                 Text("My Todos")
                     .font(.system(size: 26, weight: .black, design: .rounded))
                 
-                List(todoItems) { todoItem in
-                    TodoListRow(todoItem:todoItem)
+                List(toDoItems) { toDoItem in
+                    ToDoListRow(toDoItem:toDoItem)
                 }
                 
                 Button(action: {
@@ -38,7 +38,7 @@ struct ContentView: View {
                 .padding()
             }
             
-            if todoItems.count == 0 {
+            if toDoItems.count == 0 {
                 EmptyListView()
             }
         }
