@@ -15,6 +15,7 @@
 		CBDDC922275941C000F4955E /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBDDC920275941C000F4955E /* ToDo.xcdatamodeld */; };
 		CBDDC92B27594BF600F4955E /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDDC92A27594BF600F4955E /* ToDoItem.swift */; };
 		CBDDC92D2759516900F4955E /* CheckBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDDC92C2759516900F4955E /* CheckBoxStyle.swift */; };
+		CBDDC92F275953A100F4955E /* TodoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDDC92E275953A100F4955E /* TodoListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CBDDC921275941C000F4955E /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
 		CBDDC92A27594BF600F4955E /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		CBDDC92C2759516900F4955E /* CheckBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxStyle.swift; sourceTree = "<group>"; };
+		CBDDC92E275953A100F4955E /* TodoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				CBDDC917275941BF00F4955E /* ContentView.swift */,
 				CBDDC92C2759516900F4955E /* CheckBoxStyle.swift */,
+				CBDDC92E275953A100F4955E /* TodoListRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				CBDDC91F275941C000F4955E /* Persistence.swift in Sources */,
 				CBDDC918275941BF00F4955E /* ContentView.swift in Sources */,
 				CBDDC92B27594BF600F4955E /* ToDoItem.swift in Sources */,
+				CBDDC92F275953A100F4955E /* TodoListRow.swift in Sources */,
 				CBDDC916275941BF00F4955E /* ToDoApp.swift in Sources */,
 				CBDDC922275941C000F4955E /* ToDo.xcdatamodeld in Sources */,
 			);

@@ -10,9 +10,7 @@ import SwiftUI
 struct CheckboxStyle: ToggleStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
-        
         return HStack {
-            
             Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
                 .resizable()
                 .frame(width: 22, height: 22)
@@ -22,11 +20,7 @@ struct CheckboxStyle: ToggleStyle {
                     configuration.isOn.toggle()
                 }
             
-            
             configuration.label
-                
-            
         }
-        
     }
 }

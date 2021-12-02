@@ -53,21 +53,6 @@ struct EmptyListView: View {
     }
 }
 
-struct TodoListRow: View {
-    @ObservedObject var todoItem: ToDoItem
-    
-    var body: some View {
-        Toggle(isOn: self.$todoItem.isComplete) {
-            HStack {
-                Text(self.todoItem.name)
-                    .strikethrough(self.todoItem.isComplete, color: .black)
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .animation(.default)
-            }
-        }.toggleStyle(CheckboxStyle())
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
